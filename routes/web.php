@@ -20,14 +20,6 @@ use App\Http\Controllers\CheckoutController;
 
 
 
-// // Protected routes
-// Route::group(['middleware' => ['auth:sanctum']], function () {
-//     Route::post('/products', [ProductController::class, 'store']);
-//     Route::put('/products/{id}', [ProductController::class, 'update']);
-//     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
-//     Route::post('/logout', [UserController::class, 'logout']);
-// });
-
 Auth::routes();
 
 // Route::get('/checkout', [App\Http\Controllers\HomeController::class, 'index'])->name('checkout');
@@ -42,5 +34,4 @@ Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('r
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/checkout', [CheckoutController::class, 'getCheckout'])->name('checkout');
     Route::post('/order', [CheckoutController::class, 'placeOrder'])->name('order');
-    // Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
 });
